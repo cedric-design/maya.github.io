@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saint Valentin</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="scene" id="intro">
+      <div class="glow"></div>
+      <section class="card intro">
+        <p class="subtitle">Saint Valentin</p>
+        <h1>Bienvenue mon amour</h1>
+        <p class="question">
+          Tu veux rentrer dans, tu veux voir ce qu'il ya dans mon coeur ?
+          <span>(Essaie de cliquer sur le bouton non pour voir)</span>
+        </p>
+        <div class="actions" id="actions">
+          <button class="btn yes" id="yesBtn">Oui</button>
+          <button class="btn no" id="noBtn" aria-disabled="true">Non</button>
+        </div>
+      </section>
+    </main>
+
+    <section class="timeline-page" id="timeline" aria-hidden="true">
+      <div class="timeline-inner">
+        <p class="subtitle light">Notre histoire</p>
+        <h2>Les etapes de nos vies</h2>
+        <div class="timeline-content">
+          <div class="year-list" role="list">
+            <button class="year-btn" data-year="2021" data-detail="La première fois que je t’ai vue, c’était en 2021. J’ai été surpris par toi, vraiment. Je me souviens t’avoir regardée un moment, puis on ne s’est plus jamais revus.">
+              2021
+            </button>
+            <button class="year-btn" data-year="2022" data-detail="On est devenus plus amis. On s’est vus au ciné. Ouais, tu faisais battre mon cœur… même quand tu disais : « Ils ont oublié que ça fait longtemps que Maya m’appartient. »">
+              2022
+            </button>
+            <button class="year-btn" data-year="2023" data-detail="L'année ou tu m'as forcé a devenir besto eehhh ouais">
+              2023
+            </button>
+            <button class="year-btn" data-year="2024" data-detail="Les reves qu'on construit ensemble, main dans la main.">
+              2024
+            </button>
+            <button class="year-btn" data-year="2025" data-detail="En 2025, je crois que les choses sont arrivées au plus beau des moments. Depuis le jour où on s’est mis ensemble jusqu’à aujourd’hui, je ne changerais absolument rien. Tout n’était pas parfait, mais tout était nous. Des moments de joie, des fous rires, cette petite gang qui me pique, me chatouille sans arrêt… notre première aventure en jet-ski, le quad, nos baisers sur la plage d’Assinie, notre voyage à San Pedro. Je ne retiens que le meilleur. Tu es simplement adorable. Tu es tout ce que je recherche, tout ce que j’ai longtemps désiré. Tu es mon évidence, mon rêve. Grâce à toi, je deviens un meilleur homme, plus courageux.">
+              2025
+            </button>
+            <button class="year-btn" data-year="2026" data-detail="2026 sera, inchallah, une année exceptionnelle. Je le crois profondément. Qu’Allah nous accompagne à chaque étape, qu’Il nous aide, nous protège et nous ouvre encore de grandes facilités sur notre chemin. Je t’aime plus que tout, mon bébé, ma Maya. Chaque jour à tes côtés me confirme que tu es la femme que je veux pour ma vie. J’ai tellement hâte de te voir devenir Madame Djiré, de construire avec toi un avenir rempli de paix, de projets et d’amour. Je crois en toi, en ta force, en ton cœur. Et surtout, je crois en nous, en ce que nous sommes et en ce que nous allons devenir, main dans la main.">
+              2026
+            </button>
+          </div>
+          <div class="year-detail" id="yearDetail">
+            <p class="year-label">Clique sur une annee</p>
+            <p class="year-text">Chaque etape cache un souvenir special.</p>
+          </div>
+          <div class="finish-wrap">
+            <button class="finish-btn" id="finishBtn" type="button">
+              Termine
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-page" id="final" aria-hidden="true">
+      <div class="final-inner">
+        <p class="subtitle light">Pour toi</p>
+        <p class="final-message" id="finalMessage">Eu te amo</p>
+      </div>
+    </section>
+
+    <div class="modal" id="errorModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <div class="modal-icon">!</div>
+        <h3 id="modalTitle">Erreur romantique</h3>
+        <p id="modalText">
+          LA la j'ai rien a dire hein cette affaire de bestooo tchrrr l'homme
+          était fan de toi co besto tchai tchai tchai tchai
+        </p>
+        <button class="modal-close" id="modalClose">Ok</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
