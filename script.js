@@ -11,6 +11,8 @@ const finalMessage = document.getElementById("finalMessage");
 const errorModal = document.getElementById("errorModal");
 const modalClose = document.getElementById("modalClose");
 const modalText = document.getElementById("modalText");
+const musicOverlay = document.getElementById("musicOverlay");
+const musicIframe = document.getElementById("musicIframe");
 const errorMessage =
   "LA la j'ai rien a dire hein cette affaire de bestooo tchrrr l'homme était fan de toi co besto tchai tchai tchai tchai";
 
@@ -80,10 +82,15 @@ yesBtn.addEventListener("click", () => {
   document.body.classList.add("light");
   scene.classList.add("transitioned");
   timeline.setAttribute("aria-hidden", "false");
+  const timelineTop = timeline.getBoundingClientRect().top + window.pageYOffset;
+  const offset = 120; // marge en px pour ne pas coller en haut
+  window.scrollTo({
+    top: timelineTop - offset,
+    behavior: "smooth",
+  });
   window.setTimeout(() => {
     scene.classList.add("hidden");
   }, 600);
-  timeline.scrollIntoView({ behavior: "smooth" });
 });
 
 yearButtons.forEach((button) => {
@@ -133,9 +140,38 @@ const startLoveLoop = () => {
   messageInterval = window.setInterval(() => {
     finalMessage.classList.add("fade");
     window.setTimeout(() => {
-      messageIndex = (messageIndex + 1) % loveMessages.length;
-      finalMessage.textContent = loveMessages[messageIndex];
-      finalMessage.classList.remove("fade");
+      // On fait défiler tous les "je t'aime" une seule fois,
+      // puis on affiche un dernier bouton musique.
+      if (messageIndex < loveMessages.length - 1) {
+        messageIndex += 1;
+        finalMessage.textContent = loveMessages[messageIndex];
+        finalMessage.classList.remove("fade");
+      } else {
+        window.clearInterval(messageInterval);
+        messageInterval = null;
+        finalMessage.classList.remove("fade");
+        finalMessage.innerHTML = `
+          <div class="final-music">
+            <p>Pour finir, écoute notre musique ❤️</p>
+            <button class="music-btn" id="musicBtn">
+              Découvre la surprise
+            </button>
+          </div>
+        `;
+
+        const musicBtn = document.getElementById("musicBtn");
+        if (musicBtn) {
+          musicBtn.addEventListener("click", () => {
+            // Certains contenus YouTube ne peuvent pas être lus en iframe
+            // on ouvre donc la vidéo directement dans un nouvel onglet,
+            // à partir de 0:06.
+            window.open(
+              "https://www.youtube.com/watch?v=8emFHDYsWcs&list=RD8emFHDYsWcs&start_radio=1&t=6s",
+              "_blank",
+            );
+          });
+        }
+      }
     }, 300);
   }, 2500);
 };

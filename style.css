@@ -297,6 +297,68 @@ body.final .final-page {
   opacity: 0;
 }
 
+.final-music {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.final-music p {
+  font-size: 1rem;
+  color: #ff4d8d;
+}
+
+.music-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: #ff4d8d;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 12px 30px rgba(255, 77, 141, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.music-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(255, 77, 141, 0.35);
+}
+
+.music-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 20;
+}
+
+.music-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.music-overlay-inner {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.music-overlay-inner iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .modal {
   position: fixed;
   inset: 0;
